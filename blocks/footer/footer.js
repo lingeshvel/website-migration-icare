@@ -71,6 +71,28 @@ function renderIconImages(column) {
 }
 
 /**
+ * Links an authored logo: AEM authoring turns a paragraph holding only a link into a button
+ * (dropping any image inside it), so the logo is authored as an image paragraph followed by
+ * a home link paragraph. The image is moved into the link; its alt text names the link.
+ * @param {Element} section fragment section
+ */
+function linkLogo(section) {
+  if (section.querySelector('ul')) return;
+  const images = [...section.querySelectorAll('img')].filter((img) => !img.closest('a'));
+  const links = [...section.querySelectorAll('a[href]')];
+  if (images.length !== 1 || links.length !== 1) return;
+  const [img] = images;
+  const [link] = links;
+  const media = img.closest('picture') || img;
+  const holder = media.parentElement;
+  if (img.alt) link.setAttribute('aria-label', img.alt);
+  link.replaceChildren(media);
+  if (holder && holder !== section && !holder.children.length && !holder.textContent.trim()) {
+    holder.remove();
+  }
+}
+
+/**
  * Assigns a presentational role to a fragment section based on its content.
  * @param {Element} section fragment section
  * @returns {string} column modifier
@@ -121,6 +143,7 @@ function buildFooter(fragment) {
       return;
     }
     const column = document.createElement('div');
+    linkLogo(section);
     const type = getColumnType(section);
     column.className = `footer-column footer-column-${type}`;
     column.append(...section.childNodes);

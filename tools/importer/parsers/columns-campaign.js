@@ -76,6 +76,6 @@ export default function parse(element, { document }) {
   }
 
   const cells = [[introCell, panelCell.length ? panelCell : '']];
-  const block = WebImporter.Blocks.createBlock(document, { name: 'columns-campaign', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'Columns (campaign)', cells });
   element.replaceWith(block);
 }

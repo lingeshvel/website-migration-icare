@@ -201,7 +201,7 @@ var CustomImportScript = (() => {
       return;
     }
     const cells = [[introCell, panelCell.length ? panelCell : ""]];
-    const block = WebImporter.Blocks.createBlock(document, { name: "columns-campaign", cells });
+    const block = WebImporter.Blocks.createBlock(document, { name: "Columns (campaign)", cells });
     element.replaceWith(block);
   }
 
@@ -268,7 +268,7 @@ var CustomImportScript = (() => {
       return;
     }
     const cells = [[featureCell.length ? featureCell : "", listCell.length ? listCell : ""]];
-    const block = WebImporter.Blocks.createBlock(document, { name: "columns-story", cells });
+    const block = WebImporter.Blocks.createBlock(document, { name: "Columns (story)", cells });
     element.replaceWith(block);
   }
 

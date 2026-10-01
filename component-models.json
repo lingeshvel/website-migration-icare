@@ -152,6 +152,13 @@
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Image Alt Text"
+      },
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -171,6 +178,13 @@
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Image Alt Text"
+      },
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -188,6 +202,13 @@
         "name": "image",
         "label": "Icon",
         "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Image Alt Text"
       },
       {
         "component": "richtext",
@@ -233,6 +254,18 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "campaign",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Campaign",
+            "value": "campaign"
+          }
+        ]
       }
     ]
   },
@@ -252,6 +285,18 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "story",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Story",
+            "value": "story"
+          }
+        ]
       }
     ]
   },
