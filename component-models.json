@@ -316,6 +316,26 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Campaign",
+            "value": "campaign"
+          },
+          {
+            "name": "Story",
+            "value": "story"
+          }
+        ]
       }
     ]
   },

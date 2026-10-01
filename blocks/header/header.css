@@ -361,11 +361,10 @@ header .header .nav-login-toggle[aria-expanded='true'] {
 
 header .nav-login-toggle img {
   position: absolute;
-  top: 50%;
+  top: 18px;
   left: 25px;
   width: 19.4px;
   height: 25.6px;
-  transform: translateY(-50%);
 }
 
 header .nav-login-overlay {
@@ -828,9 +827,10 @@ body:has(> .skiptranslate) {
     margin: 0 30px 0 auto;
   }
 
-  header .nav-search-toggle {
+  /* .header raises specificity above the `header .header button` margin reset */
+  header .header .nav-search-toggle {
     display: block;
-    margin: 0 15px 0 0;
+    margin: 13px 15px 14px 0;
   }
 
   header .header .nav-login-toggle {
