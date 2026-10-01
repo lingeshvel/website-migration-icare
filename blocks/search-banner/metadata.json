@@ -1,0 +1,33 @@
+{
+  "id": "search-banner",
+  "name": "search-banner",
+  "type": "search",
+  "variantName": "search-banner",
+  "baseBlock": "search",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:43:36.217Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "site-search",
+    "imagePattern": "noimg",
+    "structure": "label + input + icon button (elevated card overlapping hero)"
+  },
+  "contentPattern": "Row 1: 'How can we help?' label (optional); Row 2: link to /query-index.json (or search results URL)",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:43:36.217Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "search-banner"
+  ]
+}

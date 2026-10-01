@@ -50,7 +50,14 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "hero-home",
+        "search-banner",
+        "cards-audience",
+        "columns-campaign",
+        "columns-story",
+        "cards-news",
+        "cards-resource"
       ]
     }
   ]

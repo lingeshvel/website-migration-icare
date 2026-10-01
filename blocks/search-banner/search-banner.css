@@ -1,0 +1,193 @@
+/* search-banner: elevated white search card overlapping the bottom of the hero.
+   Values extracted from https://www.icare.nsw.gov.au/ #banner-search */
+main .search-banner-wrapper {
+  /* how far the card is pulled up over the hero */
+  --search-banner-overlap: 40px;
+}
+
+.search-banner {
+  position: relative;
+  z-index: 4;
+  box-sizing: border-box;
+
+  /* mobile: source card is narrower and sits 17px from the viewport edge
+     (375px: 316.8px wide at x 17 -> section content width minus 18.2px,
+     pulled 3px left of the 20px section padding) */
+  max-width: calc(100% - 18.2px);
+  margin: calc(-1 * var(--search-banner-overlap, 40px)) auto 0 -3px;
+  padding: 15px 24px;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 8px;
+  background-color: var(--background-color, #fff);
+  box-shadow: var(--card-shadow, 0 6px 26px 0 rgb(145 159 186 / 10%));
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/* when the next section is grey, the grey starts where the hero ends
+   (behind the lower part of the card), as on the source page.
+   border-image paints a full-bleed band without affecting layout. */
+main > .section:has(+ .section.grey) .search-banner-wrapper {
+  border-image:
+    linear-gradient(
+      transparent var(--search-banner-overlap),
+      var(--light-color) var(--search-banner-overlap)
+    )
+    fill 0 / 0 / 0 100vw 40px;
+}
+
+.search-banner .search-banner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+}
+
+.search-banner .search-banner-label {
+  display: block;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+.search-banner .search-banner-box {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 49.5px;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.search-banner .search-banner-input {
+  /* mobile: source input slot is 80.5% of the box (213.2px of 264.8px) */
+  flex: 0 0 80.5%;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 45px;
+  margin: 0;
+  padding: 14px 10px;
+  border: 0;
+
+  /* source: the 4px radius is on the box wrapper; the input itself is square */
+  border-radius: 0;
+  background-color: #fff;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 30px;
+  text-align: left;
+  appearance: none;
+}
+
+.search-banner .search-banner-input::placeholder {
+  color: rgb(117 117 117);
+  opacity: 1;
+}
+
+.search-banner .search-banner-input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.search-banner .search-banner-button {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 42.03px;
+  height: 45px;
+
+  /* mobile: source 42px button centred in an 18% slot after the input */
+  margin: 0 0 0 calc((18% - 42.03px) / 2);
+  padding: 14px;
+  border: 0;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+}
+
+/* 14px magnifier (source: icon-disabled-search.svg, #888) drawn in CSS */
+.search-banner .search-banner-icon {
+  position: relative;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+}
+
+.search-banner .search-banner-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid currentcolor;
+  border-radius: 50%;
+}
+
+.search-banner .search-banner-icon::after {
+  content: '';
+  position: absolute;
+  top: 9.5px;
+  left: 8.5px;
+  width: 6px;
+  height: 1.5px;
+  background: currentcolor;
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+.search-banner .search-banner-results {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-banner .search-banner-results:empty {
+  display: none;
+}
+
+.search-banner .search-banner-results > li {
+  padding: 8px 0;
+}
+
+.search-banner .search-banner-results > li p {
+  margin: 4px 0 0;
+}
+
+@media (width >= 900px) {
+  main .search-banner-wrapper {
+    --search-banner-overlap: 80px;
+  }
+
+  .search-banner {
+    /* source #banner-search has margin-left: -25px, offsetting the card */
+    left: -25px;
+    max-width: 1168px;
+    margin-left: auto;
+    min-height: 180px;
+    padding-top: 25px;
+  }
+
+  .search-banner .search-banner-label {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .search-banner .search-banner-input {
+    flex: 1 1 auto;
+  }
+
+  .search-banner .search-banner-button {
+    /* source: 42px button centred in a 51.8px slot, 4px from the box edge */
+    margin: 0 8.88px 0 4.88px;
+  }
+}

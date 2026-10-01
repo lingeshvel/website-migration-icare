@@ -1,0 +1,33 @@
+{
+  "id": "columns-story",
+  "name": "columns-story",
+  "type": "columns",
+  "variantName": "columns-story",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:45:14.045Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "feature-story",
+    "imagePattern": "large + thumbnails",
+    "structure": "heading + image + text + cta | grey panel with 3 thumbnail items"
+  },
+  "contentPattern": "1 row, 2 cells. Cell 1: H2, image, paragraph, link 'Find out more' (primary/magenta button). Cell 2: 3 repeats of [image, H3/strong title, paragraph, 'Find out more' link] (JS groups each image-led item).",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:45:14.045Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "columns-story"
+  ]
+}

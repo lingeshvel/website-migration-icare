@@ -1,0 +1,14 @@
+{
+  "sites": {
+    "website-migration-icare": {
+      "previewOrg": "lingeshvel",
+      "previewSite": "website-migration-icare",
+      "aemSitePath": "/content/website-migration-icare",
+      "aemAssetsFolderPath": "/content/dam/website-migration-icare",
+      "aemSiteName": "website-migration-icare",
+      "aemSiteTitle": "Website Migration icare",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  },
+  "type": "xwalk"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "cards-audience",
+  "name": "cards-audience",
+  "type": "cards",
+  "variantName": "cards-audience",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:44:13.228Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light-on-grey",
+    "density": "medium",
+    "purpose": "audience-navigation",
+    "imagePattern": "icon",
+    "structure": "icon + title + arrow, 4-col grid, whole-tile link"
+  },
+  "contentPattern": "Each row: [icon image | H2/H3 title wrapped in link]; arrow icon is decorative (CSS).",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:44:13.228Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-audience"
+  ]
+}

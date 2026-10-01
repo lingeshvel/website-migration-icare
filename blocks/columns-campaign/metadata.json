@@ -1,0 +1,33 @@
+{
+  "id": "columns-campaign",
+  "name": "columns-campaign",
+  "type": "columns",
+  "variantName": "columns-campaign",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:44:45.171Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light-on-grey",
+    "density": "medium",
+    "purpose": "campaign-promo",
+    "imagePattern": "noimg",
+    "structure": "heading + text + cta | stacked linked panels with green arrow bar"
+  },
+  "contentPattern": "1 row, 2 cells. Cell 1: H2, paragraph, link 'Learn more'. Cell 2: for each panel an H3 containing a link + paragraph (JS wraps each heading+paragraph pair into a clickable panel with green arrow bar).",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:44:45.171Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "columns-campaign"
+  ]
+}

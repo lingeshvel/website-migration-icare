@@ -1,0 +1,25 @@
+/* icare brand tokens, extracted from https://www.icare.nsw.gov.au/ */
+:root {
+  --heading-font-family: "Noto Sans", noto-sans-fallback, sans-serif;
+  --body-font-family: "Noto Sans", noto-sans-fallback, sans-serif;
+  --background-color: #fff;
+  --text-color: #555;
+  --heading-color: #111;
+  --link-color: #d0006f;
+  --link-hover-color: #e0499a;
+  --brand-blue: #004c97;
+  --brand-magenta: #d0006f;
+  --brand-magenta-hover: #e0499a;
+  --light-color: #f5f5f5;
+  --border-color: #ccc;
+  --card-shadow: 0 6px 26px 0 rgb(145 159 186 / 10%);
+  --section-padding: 40px;
+  --content-max-width: 1200px;
+  --nav-height: 56px;
+  --heading-size-xxl: 42px;
+  --heading-size-xl: 30px;
+  --heading-size-l: 24px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}

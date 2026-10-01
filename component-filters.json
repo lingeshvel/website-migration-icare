@@ -15,13 +15,50 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "hero-home",
+      "search-banner",
+      "cards-audience",
+      "columns-campaign",
+      "columns-story",
+      "cards-news",
+      "cards-resource"
+    ]
+  },
+  {
+    "id": "cards-audience",
+    "components": [
+      "cards-audience-card"
+    ]
+  },
+  {
+    "id": "cards-news",
+    "components": [
+      "cards-news-card"
+    ]
+  },
+  {
+    "id": "cards-resource",
+    "components": [
+      "cards-resource-card"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-campaign",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-story",
+    "components": [
+      "column"
     ]
   },
   {
