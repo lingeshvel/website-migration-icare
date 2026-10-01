@@ -1,0 +1,33 @@
+{
+  "id": "cards-news",
+  "name": "cards-news",
+  "type": "cards",
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:45:45.493Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light-on-grey",
+    "density": "medium",
+    "purpose": "news-teasers",
+    "imagePattern": "featured-background",
+    "structure": "featured card (image bg + blue overlay) + 2 text cards: date + title + excerpt + read more"
+  },
+  "contentPattern": "Each row: [image (empty for non-featured cards) | date/tag paragraph, H3 title, excerpt paragraph, 'Read more' link]",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:45:45.493Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-news"
+  ]
+}

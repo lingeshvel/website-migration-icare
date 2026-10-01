@@ -1,0 +1,271 @@
+/* cards-news: "News and stories" teasers (featured image card + text tiles) */
+.cards-news > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px 12px;
+  margin: 0;
+  padding: 0 6px;
+  list-style: none;
+}
+
+.cards-news > ul > li {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+/* card body (text tiles) */
+.cards-news .cards-news-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 29px 24px 60px;
+  border-top: 1px solid #eeeef1;
+  color: var(--text-color);
+}
+
+.cards-news .cards-news-card-body > * {
+  margin: 0;
+}
+
+/* date / content-type line, e.g. "News | 30 Aug" or "| 28 Sept" */
+.cards-news .cards-news-card-body .cards-news-card-meta {
+  font-size: 14px;
+  line-height: 17.5px;
+  color: var(--text-color);
+}
+
+.cards-news .cards-news-card-meta strong {
+  font-weight: 500;
+}
+
+.cards-news .cards-news-card-meta strong::after,
+.cards-news .cards-news-card-meta:not(:has(strong))::before {
+  content: "|";
+  display: inline-block;
+  padding: 0 10px;
+  font-weight: 400;
+}
+
+.cards-news .cards-news-card-body h3 {
+  margin: 40px 0 19px;
+  color: var(--heading-color);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+.cards-news .cards-news-card-body h3 + p {
+  margin-bottom: 30px;
+  font-size: 15px;
+  line-height: 24.45px;
+}
+
+/* "Read more" link with blue circular arrow icon */
+.cards-news .cards-news-card-body > p:last-child {
+  margin-top: auto;
+  line-height: 26.25px;
+}
+
+.cards-news .cards-news-card-body > p:last-child a:any-link {
+  color: var(--brand-blue);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 26.25px;
+  text-decoration: none;
+}
+
+.cards-news .cards-news-card-body > p:last-child a:any-link::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 9px;
+  border-radius: 20px;
+  background: var(--brand-blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M17.096 9.16L10.71 4.223a.644.644 0 0 1-.071-.989.86.86 0 0 1 .598-.234.875.875 0 0 1 .527.171l7.815 6.044a.708.708 0 0 1 .41.765.705.705 0 0 1-.426.532l-7.8 6.03a.871.871 0 0 1-1.124-.062.644.644 0 0 1 .071-.989l6.378-4.931H1.358a.705.705 0 1 1 0-1.4h15.738z' fill='%23fff'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+  vertical-align: middle;
+}
+
+/* whole card is clickable, like the source */
+.cards-news .cards-news-card-body > p:last-child a:any-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cards-news .cards-news-card-body > p:last-child a:hover {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.cards-news .cards-news-card-body > p:last-child a:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+/* featured card: background photo with translucent blue text panel */
+.cards-news > ul > li.cards-news-featured {
+  min-height: 506px;
+  background-color: transparent;
+}
+
+.cards-news .cards-news-featured .cards-news-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  line-height: 0;
+}
+
+.cards-news .cards-news-featured .cards-news-card-image p {
+  height: 100%;
+  margin: 0;
+}
+
+.cards-news .cards-news-featured .cards-news-card-image picture,
+.cards-news .cards-news-featured .cards-news-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
+
+.cards-news .cards-news-featured .cards-news-card-body {
+  box-sizing: border-box;
+  min-height: 506px;
+  padding: 30px 25px;
+  border-top: 0;
+  border-radius: 0 0 30px;
+  background-color: rgb(0 76 151 / 86%);
+}
+
+.cards-news .cards-news-featured .cards-news-card-body .cards-news-card-meta {
+  margin-bottom: -17px;
+  font-size: 13px;
+  line-height: 16.25px;
+}
+
+.cards-news .cards-news-featured .cards-news-card-meta strong {
+  color: #fff;
+}
+
+.cards-news .cards-news-featured .cards-news-card-body h3 {
+  margin: 40px 0 15px;
+  color: #fff;
+}
+
+.cards-news .cards-news-featured .cards-news-card-body h3 + p {
+  margin: auto 0 14px;
+  color: #fff;
+  line-height: 24px;
+}
+
+.cards-news .cards-news-featured .cards-news-card-body > p:last-child {
+  margin-top: 18px;
+}
+
+/* non-featured cards never show an image */
+.cards-news > ul > li:not(.cards-news-featured) .cards-news-card-image {
+  display: none;
+}
+
+/* mobile/tablet text tiles: the source has 20px bottom padding, and its flex row adds the tile's
+   bottom margin (35px, or 8px on the last tile) under that. "Read more" sits in a 16px/30px line. */
+.cards-news li:not(.cards-news-featured) .cards-news-card-body {
+  padding-bottom: 55px;
+}
+
+.cards-news li:not(.cards-news-featured):last-child .cards-news-card-body {
+  padding-bottom: 28px;
+}
+
+/* the link carries the 30px line too, so the line box is 30px even without the parent strut (quirks mode) */
+.cards-news li:not(.cards-news-featured) .cards-news-card-body > p:last-child,
+.cards-news li:not(.cards-news-featured) .cards-news-card-body > p:last-child a:any-link {
+  line-height: 30px;
+}
+
+.cards-news li:not(.cards-news-featured) .cards-news-card-body > p:last-child {
+  font-size: 16px;
+}
+
+@media (width >= 600px) {
+  .cards-news > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-news > ul > li.cards-news-featured {
+    grid-column: 1 / -1;
+  }
+
+  .cards-news .cards-news-featured .cards-news-card-body {
+    width: 289px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-news > ul {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+  }
+
+  .cards-news > ul > li.cards-news-featured {
+    grid-column: span 2;
+  }
+
+  .cards-news .cards-news-card-body {
+    padding: 20px 24px 30px;
+  }
+
+  .cards-news .cards-news-card-body h3 {
+    margin-bottom: 15px;
+  }
+
+  .cards-news .cards-news-card-body h3 + p {
+    margin-bottom: 28px;
+  }
+
+  .cards-news .cards-news-featured .cards-news-card-body {
+    border-radius: 0 0 20px;
+  }
+
+  /* text tiles: block flow (margins collapse like the source) with "Read more" pinned bottom-left */
+  .cards-news > ul > li:not(.cards-news-featured) {
+    overflow: hidden;
+  }
+
+  .cards-news li:not(.cards-news-featured) .cards-news-card-body,
+  .cards-news li:not(.cards-news-featured):last-child .cards-news-card-body {
+    display: block;
+    padding: 20px 24px;
+  }
+
+  .cards-news li:not(.cards-news-featured) .cards-news-card-body .cards-news-card-meta {
+    margin-bottom: 32px;
+  }
+
+  .cards-news li:not(.cards-news-featured) .cards-news-card-body h3 + p {
+    margin: 5px 0 64px;
+  }
+
+  .cards-news li:not(.cards-news-featured) .cards-news-card-body > p:last-child {
+    position: absolute;
+    bottom: 30px;
+    left: 24px;
+    margin: 0;
+    line-height: 26.25px;
+  }
+
+  .cards-news li:not(.cards-news-featured) .cards-news-card-body > p:last-child a:any-link {
+    line-height: 26.25px;
+  }
+
+  /* the pinned <p> is the containing block now: stretch the link back over the whole card
+     (offsets undo left/bottom; top/right overshoot and are clipped by the card's overflow) */
+  .cards-news li:not(.cards-news-featured) .cards-news-card-body > p:last-child a:any-link::before {
+    inset: -100vh -100vw -30px -24px;
+  }
+}

@@ -1,0 +1,134 @@
+/* cards-resource: icon + title + text + "Explore hub" link, white cards on grey band */
+.cards-resource > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-resource > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 220px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-weight: 500;
+  line-height: 1.875;
+  transition: border-color 0.2s;
+}
+
+.cards-resource > ul > li:hover,
+.cards-resource > ul > li:focus-within {
+  border-color: #f973b5;
+}
+
+/* icon box: 48x48, 40x40 icon centered */
+.cards-resource .cards-resource-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.cards-resource .cards-resource-card-image p,
+.cards-resource .cards-resource-card-image picture {
+  display: block;
+  margin: 0;
+  line-height: 0;
+}
+
+.cards-resource .cards-resource-card-image img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* flatten body so title, text and CTA distribute like the source card */
+.cards-resource .cards-resource-card-body {
+  display: contents;
+}
+
+.cards-resource .cards-resource-card-body h3 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: var(--heading-font-size-m);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.cards-resource .cards-resource-card-body p {
+  margin: 0 0 24px;
+  color: #4b5563;
+  font-size: 15.2px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.cards-resource .cards-resource-card-body p.cards-resource-card-cta {
+  margin: 0;
+  line-height: 1.875;
+}
+
+.cards-resource .cards-resource-card-cta a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5.6px;
+  color: #e11d74;
+  font-size: 15.2px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cards-resource .cards-resource-card-cta a::after {
+  content: "\2192";
+  font-size: 16.8px;
+  line-height: 1.875;
+}
+
+/* whole card is clickable, as on source */
+.cards-resource .cards-resource-card-cta a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.cards-resource .cards-resource-card-cta a:hover,
+.cards-resource .cards-resource-card-cta a:focus {
+  text-decoration: none;
+}
+
+/* focus ring on the whole card (source card is the link itself) */
+.cards-resource .cards-resource-card-cta a:focus-visible {
+  outline: none;
+}
+
+.cards-resource > ul > li:has(.cards-resource-card-cta a:focus-visible) {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+@media (width >= 600px) {
+  .cards-resource > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cards-resource > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+}

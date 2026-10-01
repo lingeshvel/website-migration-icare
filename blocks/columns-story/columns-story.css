@@ -1,0 +1,277 @@
+/* columns-story: feature story (left) + grey panel of promo items (right)
+   Values extracted from icare.nsw.gov.au section.cm-story-module .sl-list */
+
+.columns-story {
+  line-height: 30px;
+}
+
+.columns-story > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-story > div > div {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* ---------- right: grey panel with green rule ---------- */
+.columns-story .columns-story-list {
+  margin-top: 35px;
+  border-left: 6px solid #00a870;
+  padding: 15px;
+  background-color: var(--light-color);
+}
+
+.columns-story .columns-story-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 10px;
+  padding-bottom: 11px;
+}
+
+/* separator (source: hr, 1px #ccc, 10px above/below) */
+.columns-story .columns-story-item::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 20px;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* thumbnails are hidden below 1200px on the source */
+.columns-story .columns-story-item-image {
+  display: none;
+}
+
+.columns-story .columns-story-item-image p {
+  margin: 0 0 9px;
+  line-height: 0;
+}
+
+.columns-story .columns-story-item-image img {
+  display: block;
+  width: 150px;
+  height: 140px;
+  object-fit: fill;
+}
+
+.columns-story .columns-story-item-body {
+  margin-left: 22px;
+}
+
+.columns-story .columns-story-item-body h3 {
+  margin: 0;
+  color: var(--heading-color);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 37.5px;
+}
+
+.columns-story .columns-story-item-body p {
+  margin: 14px 0;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 26.08px;
+}
+
+.columns-story .columns-story-item-body > :first-child {
+  margin-top: 0;
+}
+
+/* "Find out more" text link with blue circle arrow */
+.columns-story .columns-story-item-body a:any-link {
+  position: relative;
+  display: inline-block;
+  padding: 0 35px 0 15px;
+  color: var(--brand-blue);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 26.08px;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+.columns-story .columns-story-item-body a:any-link::after,
+.columns-story .columns-story-item-body a:any-link::before {
+  content: "";
+  position: absolute;
+}
+
+.columns-story .columns-story-item-body a:any-link::after {
+  top: 5px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: var(--brand-blue);
+}
+
+.columns-story .columns-story-item-body a:any-link::before {
+  z-index: 1;
+  top: 9px;
+  right: 7px;
+  width: 12px;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M17.096 9.16L10.71 4.223a.644.644 0 0 1-.071-.989.86.86 0 0 1 .598-.234.875.875 0 0 1 .527.171l7.815 6.044a.708.708 0 0 1 .41.765.705.705 0 0 1-.426.532l-7.8 6.03a.871.871 0 0 1-1.124-.062.644.644 0 0 1 .071-.989l6.378-4.931H1.358a.705.705 0 1 1 0-1.4h15.738z' fill='%23FFFFFF'/%3E%3C/svg%3E") center / cover no-repeat;
+}
+
+/* source: no visual change on hover */
+.columns-story .columns-story-item-body a:any-link:hover {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+/* keyboard focus indicator (source: focus ring + underline) */
+.columns-story .columns-story-item-body a:any-link:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 1px;
+  text-decoration: underline;
+}
+
+/* ---------- left: feature story ---------- */
+.columns-story .columns-story-feature {
+  padding: 4px 10px 15px 0;
+}
+
+.columns-story .columns-story-feature h2 {
+  margin: 0 0 18px;
+  padding: 4px 0 0;
+  color: var(--heading-color);
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.columns-story .columns-story-feature p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.columns-story .columns-story-feature p:has(> picture) {
+  line-height: 0;
+}
+
+/* source: fixed 190px tall (object-fit: fill) up to 30em, auto above */
+.columns-story .columns-story-feature img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: fill;
+}
+
+@media (width > 480px) {
+  .columns-story .columns-story-feature img {
+    height: auto;
+  }
+}
+
+/* body copy following the image */
+.columns-story .columns-story-feature p:has(> picture) + p {
+  margin-top: 9px;
+  padding: 10px 2px 2px;
+}
+
+/* last paragraph (link) in a panel item */
+.columns-story .columns-story-item-body > p:last-child {
+  margin: 14px 0 0;
+}
+
+/* CTA: filled magenta pill (authored as a plain link) */
+.columns-story .columns-story-feature > p:last-child:has(> a:only-child) {
+  margin-top: 20px;
+}
+
+.columns-story .columns-story-feature > p:last-child > a:only-child:any-link {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 20px 0 0;
+  border: 1px solid var(--link-color);
+  border-radius: 40px;
+  padding: 3px 25px;
+  background-color: var(--link-color);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 29px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.columns-story .columns-story-feature > p:last-child > a:only-child:hover,
+.columns-story .columns-story-feature > p:last-child > a:only-child:focus-visible {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 768px) {
+  .columns-story .columns-story-feature {
+    padding-right: 12px;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-story > div {
+    flex-direction: row;
+    margin: 0 -6px;
+  }
+
+  .columns-story > div > div {
+    flex: 0 0 50%;
+  }
+
+  .columns-story .columns-story-feature {
+    padding: 0 18px 0 6px;
+  }
+
+  .columns-story .columns-story-feature h2 {
+    margin-bottom: 15px;
+    line-height: 50px;
+  }
+
+  .columns-story .columns-story-feature > p:last-child > a:only-child:any-link {
+    padding: 12px 40px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .columns-story .columns-story-list {
+    margin-top: 0;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns-story .columns-story-feature {
+    padding-right: 116px;
+  }
+
+  .columns-story .columns-story-item {
+    grid-template-columns: 150px 1fr;
+    align-items: start;
+  }
+
+  .columns-story .columns-story-item-no-image {
+    grid-template-columns: 1fr;
+  }
+
+  .columns-story .columns-story-item::after {
+    left: 175px;
+  }
+
+  .columns-story .columns-story-item-no-image::after {
+    left: 20px;
+  }
+
+  .columns-story .columns-story-item-image {
+    display: block;
+  }
+}

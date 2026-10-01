@@ -1,0 +1,206 @@
+/* cards-audience: whole-tile audience links (icon + title + arrow) */
+.cards-audience > ul {
+  display: grid;
+
+  /* source (<=818px): tiles are calc(50% - 15px) wide with an 8px gutter */
+  grid-template-columns: repeat(2, calc(50% - 15px));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-audience > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  height: 146px;
+  padding: 20px;
+  border: 1px solid var(--border-color, #ccc);
+  background-color: var(--background-color, #fff);
+  transition: 0.5s;
+}
+
+.cards-audience .cards-audience-card-image,
+.cards-audience .cards-audience-card-image p {
+  margin: 0;
+  line-height: 0;
+}
+
+/* source: 26px icon sits in a 34.25px line box above the title */
+.cards-audience .cards-audience-card-image {
+  margin-bottom: 8.25px;
+}
+
+.cards-audience .cards-audience-card-image img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* source (<=390px): title container is fixed at 30px, title may overflow it */
+.cards-audience .cards-audience-card-body {
+  align-self: stretch;
+  height: 30px;
+  margin-top: 0;
+}
+
+.cards-audience .cards-audience-card-body > * {
+  margin: 0;
+}
+
+.cards-audience .cards-audience-card-body h2,
+.cards-audience .cards-audience-card-body h3,
+.cards-audience .cards-audience-card-body p {
+  box-sizing: border-box;
+  height: 46px;
+  padding: 4px 0 10px;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.cards-audience .cards-audience-card-body a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cards-audience .cards-audience-card-body a:focus-visible {
+  outline: none;
+}
+
+/* whole-tile link: stretch the title link over the card */
+.cards-audience .cards-audience-linked .cards-audience-card-body a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* green arrow (source arrow.svg, fill #04A76F) */
+.cards-audience .cards-audience-arrow {
+  align-self: flex-end;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='%2304A76F'%3E%3Cpath d='M685-452H190q-13 0-21.5-8.5T160-482q0-13 8.5-21.5T190-512h495L537-660q-9-9-8.5-21t9.5-21q9-9 21-9t21 9l199 199q5 5 7 10t2 11q0 6-2 11t-7 10L581-263q-9 9-21 9t-21-9q-9-9-9-21.5t9-21.5l146-146Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: 0.5s;
+}
+
+/* hover / focus */
+.cards-audience > ul > li:hover {
+  box-shadow: var(--card-shadow, 0 6px 26px 0 rgb(145 159 186 / 10%));
+}
+
+.cards-audience > ul > li:hover .cards-audience-arrow {
+  transform: translateX(8px);
+}
+
+.cards-audience > ul > li:hover .cards-audience-card-body > * {
+  color: #702082;
+}
+
+.cards-audience > ul > li:active .cards-audience-card-body > * {
+  color: #000;
+}
+
+.cards-audience > ul > li:focus-within {
+  box-shadow: 0 0 5px 2px var(--brand-blue, #004c97);
+}
+
+@media (width >= 391px) {
+  .cards-audience > ul > li {
+    height: auto;
+    min-height: 120px;
+  }
+
+  .cards-audience .cards-audience-card-image {
+    margin-bottom: 0;
+  }
+
+  .cards-audience .cards-audience-card-body {
+    height: auto;
+  }
+
+  .cards-audience .cards-audience-card-body h2,
+  .cards-audience .cards-audience-card-body h3,
+  .cards-audience .cards-audience-card-body p {
+    height: auto;
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .cards-audience .cards-audience-arrow {
+    margin-top: auto;
+  }
+}
+
+@media (width >= 415px) {
+  .cards-audience .cards-audience-card-image img,
+  .cards-audience .cards-audience-arrow {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (width >= 900px) {
+  /* source tile container is 1272px wide with 20px inner padding;
+     tiles sit 20px inside the grey band (section pads 40px) */
+  main > .section > .cards-audience-wrapper {
+    max-width: 1232px;
+    margin: -20px auto;
+    padding: 0 20px;
+  }
+
+  .cards-audience > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .cards-audience > ul > li {
+    flex: 0 1 calc(24% - 12px);
+    min-height: 146px;
+    margin: 6px;
+  }
+
+  .cards-audience .cards-audience-card-image img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (width >= 1200px) {
+  .cards-audience > ul > li {
+    height: 232px;
+    padding: 25px;
+  }
+
+  .cards-audience .cards-audience-card-image img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .cards-audience .cards-audience-card-body {
+    margin-top: 18px;
+  }
+
+  .cards-audience .cards-audience-card-body h2,
+  .cards-audience .cards-audience-card-body h3,
+  .cards-audience .cards-audience-card-body p {
+    font-size: 20px;
+  }
+
+  .cards-audience .cards-audience-arrow {
+    width: 48px;
+    height: 48px;
+    margin-bottom: -5px;
+  }
+}

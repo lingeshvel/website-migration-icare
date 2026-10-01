@@ -1,0 +1,231 @@
+/* columns-campaign: intro (heading, text, pill CTA) | stack of linked panels with arrow bar.
+   Values extracted from source .cm-campaign-module.is-large (icare.nsw.gov.au). */
+
+/* layout: stacked on mobile */
+.columns-campaign > div {
+  display: block;
+}
+
+.columns-campaign > div > div {
+  min-width: 0;
+}
+
+/* panels cell */
+.columns-campaign .columns-campaign-panes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  /* source mobile: 59px from CTA to first panel (14px intro + 45px) */
+  padding: 45px 0 20px;
+}
+
+.columns-campaign .columns-campaign-pane {
+  position: relative;
+  padding: 38px 74px 46px 33px;
+  background-color: var(--background-color);
+  transition: background-color 0.15s;
+}
+
+.columns-campaign .columns-campaign-pane.columns-campaign-linked:hover {
+  background-color: rgb(204 238 226);
+}
+
+.columns-campaign .columns-campaign-pane.columns-campaign-linked:active {
+  background-color: rgb(102 203 169);
+}
+
+.columns-campaign .columns-campaign-pane.columns-campaign-linked:has(a:focus-visible) {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+}
+
+.columns-campaign .columns-campaign-pane-body > :first-child {
+  margin-top: 0;
+}
+
+.columns-campaign .columns-campaign-pane-body > :last-child {
+  margin-bottom: 0;
+}
+
+.columns-campaign .columns-campaign-pane-body :is(h2, h3, h4, h5, h6) {
+  margin: 0 0 26px;
+  padding: 4px 0 10px;
+  color: var(--heading-color);
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 30px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s;
+}
+
+.columns-campaign .columns-campaign-pane-body :is(h2, h3, h4, h5, h6) a:any-link,
+.columns-campaign .columns-campaign-pane-body :is(h2, h3, h4, h5, h6) a:hover {
+  color: var(--heading-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.columns-campaign .columns-campaign-pane-body :is(h2, h3, h4, h5, h6) a:focus-visible {
+  outline: none;
+}
+
+.columns-campaign .columns-campaign-pane-body p {
+  margin: 14px 0 0;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 23px;
+}
+
+/* whole-panel link: stretch the heading link over the panel */
+.columns-campaign .columns-campaign-linked .columns-campaign-pane-body :is(h1, h2, h3, h4, h5, h6) a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* green arrow bar */
+.columns-campaign .columns-campaign-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 41px;
+  background-color: rgb(0 168 112);
+  transition: background-color 0.15s;
+}
+
+.columns-campaign .columns-campaign-arrow::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 11px;
+  width: 18px;
+  height: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M17.096 9.16L10.71 4.223a.644.644 0 0 1-.071-.989.86.86 0 0 1 .598-.234.875.875 0 0 1 .527.171l7.815 6.044a.708.708 0 0 1 .41.765.705.705 0 0 1-.426.532l-7.8 6.03a.871.871 0 0 1-1.124-.062.644.644 0 0 1 .071-.989l6.378-4.931H1.358a.705.705 0 1 1 0-1.4h15.738z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* intro cell */
+.columns-campaign .columns-campaign-intro {
+  padding: 40px 0 14px;
+}
+
+.columns-campaign .columns-campaign-intro h2 {
+  margin: 0 0 25px;
+  padding: 4px 0 10px;
+  color: var(--heading-color);
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.columns-campaign .columns-campaign-intro p {
+  margin: 14px 0 50px;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* CTA paragraph: a paragraph holding only a link */
+.columns-campaign .columns-campaign-intro p:has(> a:only-child) {
+  margin: 0;
+}
+
+.columns-campaign .columns-campaign-intro p:has(> a:only-child) + p:has(> a:only-child) {
+  margin-top: 12px;
+}
+
+/* outlined blue pill, fills blue on hover (source .cta.is-secondary) */
+main .columns-campaign .columns-campaign-intro p > a:any-link:only-child {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 20px 0 0;
+  padding: 12px 40px;
+  border: 1px solid var(--brand-blue);
+  border-radius: 40px;
+  background-color: transparent;
+  color: var(--brand-blue);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+main .columns-campaign .columns-campaign-intro p > a:any-link:only-child:hover,
+main .columns-campaign .columns-campaign-intro p > a:any-link:only-child:focus-visible {
+  border-color: var(--brand-blue);
+  background-color: var(--brand-blue);
+  color: #fff;
+  text-decoration: none;
+}
+
+main .columns-campaign .columns-campaign-intro p > a:any-link:only-child:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+}
+
+@media (width >= 359px) {
+  main .columns-campaign .columns-campaign-intro p > a:any-link:only-child {
+    width: auto;
+  }
+}
+
+@media (width >= 900px) {
+  /* source: 60px from band edge to content (25px module + 35px list);
+     the grey section already supplies 40px */
+  .columns-campaign {
+    padding: 20px 0;
+  }
+
+  .columns-campaign > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .columns-campaign .columns-campaign-intro {
+    padding: 56px 142px 30px 0;
+  }
+
+  .columns-campaign .columns-campaign-intro h2 {
+    line-height: 50px;
+  }
+
+  .columns-campaign .columns-campaign-panes {
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  .columns-campaign .columns-campaign-pane {
+    padding: 22px 102px 42px 38px;
+  }
+
+  .columns-campaign .columns-campaign-pane-body :is(h2, h3, h4, h5, h6) {
+    margin-bottom: 13px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .columns-campaign .columns-campaign-pane-body p {
+    line-height: 25px;
+  }
+
+  .columns-campaign .columns-campaign-arrow {
+    width: 52px;
+  }
+
+  .columns-campaign .columns-campaign-arrow::after {
+    right: 16px;
+    width: 20px;
+    height: 16px;
+  }
+}

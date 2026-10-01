@@ -1,0 +1,33 @@
+{
+  "id": "hero-home",
+  "name": "hero-home",
+  "type": "hero",
+  "variantName": "hero-home",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:42:52.964Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark-blue",
+    "density": "minimal",
+    "purpose": "homepage-hero",
+    "imagePattern": "full-bleed-background",
+    "structure": "image + h1 + subheading"
+  },
+  "contentPattern": "1 column: image (background) row, then H1 + paragraph row",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:42:52.964Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "hero-home"
+  ]
+}

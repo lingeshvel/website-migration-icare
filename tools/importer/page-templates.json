@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.icare.nsw.gov.au/"
+      ],
+      "representativeUrl": "https://www.icare.nsw.gov.au/",
+      "description": "icare home page",
+      "blocks": [
+        {
+          "name": "hero-home",
+          "instances": [
+            ".hero-banner-container section.homepage-hero-banner"
+          ]
+        },
+        {
+          "name": "search-banner",
+          "instances": [
+            "#banner-search"
+          ]
+        },
+        {
+          "name": "cards-audience",
+          "instances": [
+            "section.all-category-home-tile-wrapper .home-tile-wrapper"
+          ]
+        },
+        {
+          "name": "columns-campaign",
+          "instances": [
+            "section.cm-campaign-module.is-large .sl-list"
+          ]
+        },
+        {
+          "name": "columns-story",
+          "instances": [
+            "section.cm-story-module .sl-list"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            "section.content-hero.has-alt-bg:has(.subheading-news) .sl:has(.subheading-news)"
+          ]
+        },
+        {
+          "name": "cards-resource",
+          "instances": [
+            "section.icare-resources .icare-resources-grid"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "1",
+          "name": "Hero with search",
+          "selector": [
+            ".hero-banner-container"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-home",
+            "search-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Audience tiles",
+          "selector": [
+            "section.all-category-home-tile-wrapper"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-audience"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "3",
+          "name": "I want to... quick links",
+          "selector": [
+            "section.cta-long-wrapper"
+          ],
+          "style": "quick-links",
+          "blocks": [],
+          "defaultContent": [
+            "section.cta-long-wrapper .cta-long-section"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "Feedback and complaints campaign",
+          "selector": [
+            "section.cm-campaign-module.is-large:has(.sl-list)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "columns-campaign"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "5",
+          "name": "Safety Speakers Program story",
+          "selector": [
+            "section.cm-story-module"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-story"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "6",
+          "name": "News and stories",
+          "selector": [
+            "section.content-hero.has-alt-bg:has(.subheading-news)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            "section.content-hero.has-alt-bg:has(.subheading-news) > .l-padding > h2",
+            "section.content-hero.has-alt-bg:has(.subheading-news) > .l-padding > a.cta"
+          ]
+        },
+        {
+          "id": "7",
+          "name": "Resources",
+          "selector": [
+            "section.icare-resources"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-resource"
+          ],
+          "defaultContent": [
+            "section.icare-resources h2.icare-section-title"
+          ]
+        },
+        {
+          "id": "8",
+          "name": "Acknowledgement of Country",
+          "selector": [
+            ".ck-content:has(> section.icare-resources) > h3"
+          ],
+          "style": "grey",
+          "blocks": [],
+          "defaultContent": [
+            ".ck-content:has(> section.icare-resources) > h3",
+            ".ck-content:has(> section.icare-resources) > h3 + p"
+          ]
+        }
+      ]
+    }
+  ]
+}

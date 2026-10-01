@@ -1,0 +1,124 @@
+/* hero-home: homepage hero. Values extracted from icare.nsw.gov.au computed styles */
+
+/* full-bleed: undo the section content max-width/padding for this block only */
+main > .section > .hero-home-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+/* mobile: image on top at natural aspect ratio, solid blue text panel below */
+.hero-home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.hero-home .hero-home-media {
+  order: -1;
+  line-height: 0;
+}
+
+.hero-home .hero-home-media picture,
+.hero-home .hero-home-media img {
+  display: block;
+  width: 100%;
+}
+
+.hero-home .hero-home-media img {
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.hero-home .hero-home-content {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 20px 20px 60px;
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+.hero-home .hero-home-content h1 {
+  max-width: 620px;
+  margin: 0;
+  color: #fff;
+  font-size: 33px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.hero-home .hero-home-content p {
+  max-width: 600px;
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 18px;
+  line-height: normal;
+}
+
+/* tablet: text overlaid on the left (blue) part of the full-bleed image */
+@media (width >= 900px) {
+  .hero-home {
+    display: block;
+  }
+
+  .hero-home .hero-home-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-home .hero-home-media picture,
+  .hero-home .hero-home-media img {
+    height: 100%;
+  }
+
+  .hero-home .hero-home-content {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 40px 20px 70px 25px;
+    background-color: transparent;
+  }
+
+  .hero-home .hero-home-content h1,
+  .hero-home .hero-home-content p {
+    max-width: 434px;
+  }
+
+  .hero-home .hero-home-content h1 {
+    margin: 0 0 12px;
+    font-size: 40px;
+  }
+
+  .hero-home.no-image {
+    background-color: var(--brand-blue);
+  }
+}
+
+/* desktop: 1200px content column (36px side padding), room below for the search card */
+@media (width >= 1200px) {
+  .hero-home .hero-home-content {
+    max-width: calc(var(--content-max-width, 1200px) + 72px);
+    padding: 70px 36px 140px;
+  }
+
+  .hero-home .hero-home-content h1 {
+    max-width: 620px;
+    margin: 0 0 20px;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 60px;
+  }
+
+  .hero-home .hero-home-content p {
+    max-width: 600px;
+    margin: 0 0 5px;
+  }
+}
+
+@media (width >= 1400px) {
+  .hero-home .hero-home-content {
+    padding: 78px 36px 160px;
+  }
+}

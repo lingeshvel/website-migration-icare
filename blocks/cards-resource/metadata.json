@@ -1,0 +1,33 @@
+{
+  "id": "cards-resource",
+  "name": "cards-resource",
+  "type": "cards",
+  "variantName": "cards-resource",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T06:46:09.008Z",
+  "sourceContext": {
+    "originUrl": "https://www.icare.nsw.gov.au/",
+    "discoveredDuring": "site-migration"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light-on-grey",
+    "density": "medium",
+    "purpose": "resource-hubs",
+    "imagePattern": "icon",
+    "structure": "icon + title + text + link, 3-col grid"
+  },
+  "contentPattern": "Each row: [icon image | H3, paragraph, link 'Explore hub']",
+  "usage": {
+    "pagesUsing": [
+      "https://www.icare.nsw.gov.au/"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-09-29T06:46:09.008Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-resource"
+  ]
+}
