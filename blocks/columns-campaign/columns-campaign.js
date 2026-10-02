@@ -6,14 +6,43 @@
  * @param {Element} block The block element
  */
 
-function buildPanels(cell) {
+const isHeading = (node) => /^H[1-6]$/.test(node.tagName);
+
+/**
+ * A paragraph holding nothing but one link (how AEM authoring stores a linked heading).
+ * @param {Element} node cell child
+ */
+const isLinkOnly = (node) => node.tagName === 'P'
+  && node.children.length === 1
+  && node.firstElementChild.tagName === 'A'
+  && node.textContent.trim() === node.firstElementChild.textContent.trim();
+
+/**
+ * Restores panel titles as headings when they arrive as link-only paragraphs:
+ * AEM authoring turns a heading that only holds a link into a plain link.
+ * @param {Element} cell panels cell
+ */
+function restoreLinkedHeadings(cell) {
   const nodes = [...cell.children];
-  if (!nodes.some((n) => /^H[1-6]$/.test(n.tagName))) return;
+  if (nodes.some(isHeading)) return;
+  nodes.filter(isLinkOnly).forEach((p) => {
+    const heading = document.createElement('h2');
+    const link = p.firstElementChild;
+    link.className = '';
+    heading.append(link);
+    p.replaceWith(heading);
+  });
+}
+
+function buildPanels(cell) {
+  restoreLinkedHeadings(cell);
+  const nodes = [...cell.children];
+  if (!nodes.some(isHeading)) return;
 
   const panels = [];
   let current = null;
   nodes.forEach((node) => {
-    if (/^H[1-6]$/.test(node.tagName) || !current) {
+    if (isHeading(node) || !current) {
       current = document.createElement('div');
       current.className = 'columns-campaign-pane-body';
       panels.push(current);

@@ -566,3 +566,8 @@ main .section.cards-resource-container .default-content-wrapper h2 {
     padding: 0 36px;
   }
 }
+
+/* sections left empty by authoring (e.g. a metadata-only section) take no space */
+main > .section:empty {
+  display: none;
+}

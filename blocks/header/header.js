@@ -30,8 +30,10 @@ const NAV_PATHS = ['/content/nav.plain.html', '/nav.plain.html'];
  * @returns {Promise<{html: string, url: string}|null>}
  */
 async function fetchNavFragment() {
+  // the /content/ fragment only exists in local preview, where pages are served under /content/
+  const local = window.location.pathname.startsWith('/content/');
   let url = NAV_PATHS[0];
-  let resp = await fetch('/content/nav.plain.html');
+  let resp = local ? await fetch('/content/nav.plain.html') : { ok: false };
   if (!resp.ok) {
     [, url] = NAV_PATHS;
     resp = await fetch('/nav.plain.html');
@@ -367,8 +369,10 @@ function readLoginLinks(section) {
 }
 
 function buildLogin(section, block) {
-  const trigger = section.querySelector('p');
-  const icon = trigger ? trigger.querySelector('img') : null;
+  // AEM authoring may split "<p><img>Login</p>" into a label paragraph and an image paragraph
+  const paragraphs = [...section.querySelectorAll(':scope > p')];
+  const trigger = paragraphs.find((p) => text(p)) || paragraphs[0];
+  const icon = section.querySelector(':scope > p img');
   const label = text(trigger);
   const toggle = el('button', {
     type: 'button', className: 'nav-login-toggle', 'aria-expanded': 'false', 'aria-controls': 'nav-login',
@@ -591,16 +595,17 @@ function buildToolbar(section, block, search) {
   list.append(el('li', {}, searchButton));
 
   linkItems.forEach((item) => {
+    // AEM authoring may split "<a><img>Label</a>" into an icon link and a label link
     const a = item.querySelector('a');
     if (!a) return;
-    const img = a.querySelector('img');
+    const img = item.querySelector('img');
     const link = el('a', { href: a.getAttribute('href'), className: 'nav-toolbar-link' });
     if (img) {
       img.alt = '';
       img.className = 'nav-toolbar-icon';
       link.append(img);
     }
-    link.append(el('span', { className: 'nav-toolbar-label' }, text(a)));
+    link.append(el('span', { className: 'nav-toolbar-label' }, text(item)));
     list.append(el('li', {}, link));
   });
   return el('div', { className: 'nav-toolbar' }, list);

@@ -273,8 +273,8 @@ export default {
     executeTransformers('afterTransform', main, payload);
 
     // 5. WebImporter built-in rules
-    const hr = document.createElement('hr');
-    main.appendChild(hr);
+    // Metadata goes into the last content section: a section holding only metadata becomes
+    // an empty section once AEM moves the metadata into the page head.
     WebImporter.rules.createMetadata(main, document);
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);

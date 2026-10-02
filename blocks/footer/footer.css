@@ -95,6 +95,12 @@ footer .footer-column-brand a:any-link {
   line-height: 30px;
 }
 
+/* fixed logo size: authored images carry their intrinsic width/height attributes */
+footer .footer-column-brand img {
+  width: 120px;
+  height: 35px;
+}
+
 /* icon (social) links */
 footer .footer-column-icons {
   grid-column: 1 / -1;
@@ -130,12 +136,16 @@ footer .footer-column-icons a:any-link {
 
 footer .footer-icon {
   display: block;
-  width: 34px;
+  width: 30px;
   height: 100%;
-  margin-right: -4px;
   background-position: left center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+footer .footer-icon-wide {
+  width: 34px;
+  margin-right: -4px;
 }
 
 /* link lists */
@@ -225,6 +235,10 @@ footer .footer-bottom p {
   }
 
   footer .footer-icon {
+    width: 20px;
+  }
+
+  footer .footer-icon-wide {
     width: 22px;
     margin-right: -2px;
   }

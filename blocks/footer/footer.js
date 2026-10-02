@@ -14,8 +14,10 @@
  * @returns {Promise<{html: string, url: string}|null>}
  */
 async function fetchFooterFragment() {
+  // the /content/ fragment only exists in local preview, where pages are served under /content/
+  const local = window.location.pathname.startsWith('/content/');
   let url = '/content/footer.plain.html';
-  let resp = await fetch('/content/footer.plain.html');
+  let resp = local ? await fetch('/content/footer.plain.html') : { ok: false };
   if (!resp.ok) {
     url = '/footer.plain.html';
     resp = await fetch('/footer.plain.html');
@@ -63,10 +65,13 @@ function renderIconImages(column) {
     const a = img.closest('a');
     const icon = document.createElement('span');
     icon.className = 'footer-icon';
+    // landscape images (e.g. the LinkedIn mark) get a wider box, as on the source
+    const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
+    if (ratio > 1.05) icon.classList.add('footer-icon-wide');
     icon.setAttribute('aria-hidden', 'true');
-    icon.style.backgroundImage = `url("${img.src}")`;
+    icon.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
     if (img.alt) a.setAttribute('aria-label', img.alt);
-    img.replaceWith(icon);
+    (img.closest('picture') || img).replaceWith(icon);
   });
 }
 
