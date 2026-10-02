@@ -466,10 +466,14 @@ function buildBackButton(label, onBack) {
 }
 
 function buildCategory(li, index, categories) {
-  const labelLink = li.querySelector(':scope > a');
-  const visible = text(labelLink) || text(li.firstChild);
+  // AEM authoring wraps list item content in paragraphs: <li><p><a>Category</a></p>…
+  const labelLink = li.querySelector(':scope > a, :scope > p > a');
+  const labelHolder = labelLink && labelLink.parentElement !== li ? labelLink.parentElement : null;
+  const firstText = [...li.childNodes]
+    .find((n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+  const visible = text(labelLink) || text(firstText);
   const lists = [...li.querySelectorAll(':scope > ul')];
-  const paragraphs = [...li.querySelectorAll(':scope > p')];
+  const paragraphs = [...li.querySelectorAll(':scope > p')].filter((p) => p !== labelHolder);
   const a11y = paragraphs.find((p) => text(p) !== visible && text(p).startsWith(visible));
   const tasksHeading = paragraphs.find((p) => p !== a11y);
 
